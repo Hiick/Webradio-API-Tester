@@ -1,0 +1,25 @@
+{
+  "name": "API_Tester",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hiick/Webradio-API-Tester.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hiick/Webradio-API-Tester/issues"
+  },
+  "homepage": "https://github.com/Hiick/Webradio-API-Tester#readme",
+  "devDependencies": {
+    "cssnano": "^4.1.10",
+    "sass": "^1.26.3"
+  }
+}
