@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .TopNavDropdown-labelContainer {
   display: flex;
   flex-flow: row nowrap;
@@ -1152,7 +1153,6 @@ a.docs-link:active, a.docs-link:focus, a.docs-link:hover {
 #language {
   height: 100%;
   flex-shrink: 1;
-  overflow-x: auto;
 }
 
 .language-toggle {
@@ -1285,7 +1285,6 @@ a.docs-link:active, a.docs-link:focus, a.docs-link:hover {
 .ContextualPopover-contents {
   max-height: calc(100vh - 16px);
   max-height: calc(100vh - var(--sp16));
-  overflow-y: auto;
 }
 
 .ContextualPopover-contents > div[role=menu]:focus {
@@ -1370,8 +1369,7 @@ a.docs-link:active, a.docs-link:focus, a.docs-link:hover {
   padding-left: 4px;
   font-size: 14px;
   font-weight: 500;
-  color: #4db7e8;
-  color: var(--cyan300);
+  color: #EF0051;
   text-decoration: none;
   text-transform: uppercase;
 }
@@ -3638,6 +3636,15 @@ p.IntroSection-signIn, pre.IntroSection-pre {
   flex-shrink: 0;
 }
 
+#searchbar {
+  height: 30px;
+  position: absolute;
+}
+
+.docs {
+  display: block;
+}
+
 .SearchBar-label {
   display: flex;
   padding: 16px 0 16px 12px;
@@ -4764,6 +4771,174 @@ button.Search-searchbar:active kbd.Search-searchbar-kbd, button.Search-searchbar
   background-color: var(--primary600);
   box-shadow: 0 1px 0 0 #0e6245, 0 0 0 1px #09825d;
   box-shadow: 0 1px 0 0 var(--primary600), 0 0 0 1px var(--primary500);
+}
+
+.image-upload > input {
+  display: none;
+}
+
+.image-upload img {
+  width: 200px;
+  cursor: pointer;
+}
+
+.image-upload {
+  position: relative;
+  text-align: center;
+}
+
+.fa-edit {
+  position: absolute;
+  cursor: pointer;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.image-upload-channel > input {
+  display: none;
+}
+
+.image-upload-channel img {
+  width: 200px;
+  cursor: pointer;
+}
+
+.image-upload-channel {
+  position: relative;
+  text-align: center;
+}
+
+.fa-edit {
+  position: absolute;
+  cursor: pointer;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: #EF0051;
+  border: none;
+  color: white;
+  padding: 15px 80px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 13px;
+  -webkit-box-shadow: 0 10px 30px 0 rgba(211, 16, 82, 0.4);
+  box-shadow: 0 10px 30px 0 rgba(211, 16, 82, 0.4);
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  margin: 5px 20px 40px 20px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
+  background-color: #D31052;
+}
+
+input[type=text], input[type=password] {
+  background-color: #f6f6f6;
+  border: none;
+  color: #0d0d0d;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  width: 85%;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #fff;
+  border-bottom: 2px solid #5fbae9;
+}
+
+div.response_wrapper {
+  padding: 0 0 0 20px;
+  height: 300px;
+  overflow-y: scroll;
+}
+
+#sidebar {
+  width: 220px;
+  width: var(--sidebar-width);
+  height: 100%;
+  position: relative;
+  background: #fff;
+  background: var(--white);
+  box-shadow: inset -1px 0 0 0 #e3e8ee;
+  box-shadow: -1px 0 0 0 var(--gray100) inset;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 3;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background: #f6f6f6;
+  background-image: none;
+  flex: 1;
+  padding: 0 0.5em;
+  color: gray;
+  cursor: pointer;
+  font-size: 1em;
+  font-family: "Open Sans", sans-serif;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+.select {
+  position: relative;
+  display: flex;
+  width: 20em;
+  height: 3em;
+  line-height: 3;
+  background: #f6f6f6;
+  overflow: hidden;
+  border-radius: 0.25em;
+  margin: auto;
+}
+
+.select::after {
+  content: "▼";
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  background: lightgray;
+  cursor: pointer;
+  pointer-events: none;
+  transition: 0.25s all ease;
+}
+
+.select:hover::after {
+  color: #23b499;
 }
 
 /*# sourceMappingURL=/API_Tester.e31bb0bc.css.map */
