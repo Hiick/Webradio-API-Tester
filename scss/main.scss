@@ -4357,12 +4357,20 @@ button.Search-searchbar:active kbd.Search-searchbar-kbd,button.Search-searchbar:
   text-align: center;
 }
 
-.fa-edit {
-  position: absolute;
+.image-upload-radio > input
+{
+  display: none;
+}
+
+.image-upload-radio img
+{
+  width: 200px;
   cursor: pointer;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+}
+
+.image-upload-radio {
+  position: relative;
+  text-align: center;
 }
 
 input[type=button], input[type=submit], input[type=reset]  {
