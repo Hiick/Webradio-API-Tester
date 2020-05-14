@@ -343,9 +343,11 @@ $(document).ready(function () {
       }
     });
   });
-  $("#get_user_connected_form").on('submit', function () {
-    var token = localStorage.getItem("token");
+  $("#get_user_connected_form").on('submit', function (e) {
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+
     disable();
+    var token = localStorage.getItem("token");
     $.ajax({
       type: "GET",
       url: 'https://webradio-stream.herokuapp.com/authorized/users/logged',
@@ -1452,7 +1454,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59216" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50454" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

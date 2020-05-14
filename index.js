@@ -159,9 +159,11 @@ $(document).ready(function(){
         });
     });
 
-    $("#get_user_connected_form").on('submit', () => {
-        const token = localStorage.getItem("token");
+    $("#get_user_connected_form").on('submit', (e) => {
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+
         disable()
+        const token = localStorage.getItem("token");
 
         $.ajax({
             type: "GET",
