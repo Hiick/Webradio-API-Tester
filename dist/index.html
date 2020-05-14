@@ -129,6 +129,67 @@
                 <li class="">
                     <a class="sidebar-nav-item docs hoverable" href="#create_radio">Ajouter une radio</a>
                 </li>
+                <li class="">
+                    <a class="sidebar-nav-item docs hoverable" href="#delete_one_radio">Supprimer une radio</a>
+                </li>
+                <div class="sidebar-nav-group NavGroup-shown">
+                    <h5 class="sidebar-nav-heading">Administration signalements</h5>
+                    <hr>
+                </div>
+                <li class="">
+                    <a class="sidebar-nav-item docs hoverable" href="#get_all_signalements">Récupérer tous les signalements</a>
+                </li>
+                <li class="">
+                    <a class="sidebar-nav-item docs hoverable" href="#get_channel_signalements">Récupérer les signalements d'une chaîne</a>
+                </li>
+                <li class="">
+                    <a class="sidebar-nav-item docs hoverable" href="#update_channel_signalements">Mettre à jour un signalement</a>
+                </li>
+                <li class="">
+                    <a class="sidebar-nav-item docs hoverable" href="#delete_signalements">Supprimer un signalement</a>
+                </li>
+                <div class="sidebar-nav-group NavGroup-shown">
+                    <h5 class="sidebar-nav-heading">Statistiques utilisateurs</h5>
+                    <hr>
+                </div>
+                <li class="">
+                    <a class="sidebar-nav-item docs hoverable" href="#stats_all_signalements">Nombre de signalements</a>
+                </li>
+                <div class="sidebar-nav-group NavGroup-shown">
+                    <h5 class="sidebar-nav-heading">Statistiques utilisateurs</h5>
+                    <hr>
+                </div>
+                <li class="">
+                    <a class="sidebar-nav-item docs hoverable" href="#stats_all_users">Nombre d'utilisateurs</a>
+                </li>
+                <li class="">
+                    <a class="sidebar-nav-item docs hoverable" href="#stats_all_subs">Nombre d'abonnés</a>
+                </li>
+                <li class="">
+                    <a class="sidebar-nav-item docs hoverable" href="#stats_all_active_users">Nombre d'utilisateurs actifs</a>
+                </li>
+                <li class="">
+                    <a class="sidebar-nav-item docs hoverable" href="#stats_all_inactive_users">Nombre d'utilisateurs inactifs</a>
+                </li>
+                <div class="sidebar-nav-group NavGroup-shown">
+                    <h5 class="sidebar-nav-heading">Statistiques streams & radios</h5>
+                    <hr>
+                </div>
+                <li class="">
+                    <a class="sidebar-nav-item docs hoverable" href="#stats_all_listen_streams_radios">Nombre d'écoutes streams & radios</a>
+                </li>
+                <li class="">
+                    <a class="sidebar-nav-item docs hoverable" href="#stats_all_listen_streams">Nombre d'écoutes streams</a>
+                </li>
+                <li class="">
+                    <a class="sidebar-nav-item docs hoverable" href="#stats_all_listen_radios">Nombre d'écoutes radios</a>
+                </li>
+                <li class="">
+                    <a class="sidebar-nav-item docs hoverable" href="#stats_all_radios">Nombre de radio</a>
+                </li>
+                <li class="">
+                    <a class="sidebar-nav-item docs hoverable" href="#stats_all_created_stream">Nombre de stream crées</a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -575,7 +636,7 @@
 
                         <input type="file" accept="image/*" id="cameraInputChannel">
                     </div>
-                    <input type="text" id="update_user_channel_name" class="fadeIn second btn_submit" name="update_user_channel_name" placeholder="Nom de chaîne" required="">
+                    <input type="text" id="update_user_channel_name" class="fadeIn second" name="update_user_channel_name" placeholder="Nom de chaîne" required="">
                     <p></p>
                     <input type="submit" class="fadeIn fourth" value="Mettre à jour">
                 </form>
@@ -1222,6 +1283,655 @@
                     <div class="response_wrapper">
                         <p id="create_radio_response">Le résultat du test apparaîtra ici</p>
                         <pre id="create_radio_json_response"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="method first-of-group" id="delete_one_radio">
+        <div class="MethodArea-divider"></div>
+        <div class="method-area method-area-expanded">
+            <div class="method-copy">
+                <div class="method-copy-padding">
+                    <div class="MethodCopyTitle">
+                        <h1 class="MethodCopyTitle-anchor">Supprimer une radio</h1>
+                    </div>
+                </div>
+                <p>Test de suppression d'une radio spécifique via l'API de la plateforme Webradio-Stream.</p>
+                <p>Le résultat de votre requête apparaîtra dans la colonne résultat prévu à cet effet.</p>
+                <p><strong>Le résultat peut prendre du temps à arriver. Si rien ne se passe, attendez quelques secondes.</strong></p>
+                <p>NB: Un Token OAuth2 est nécessaire. Pensez à vous connecter.</p>
+                <br>
+
+                <form id="delete_one_radio_form" style="text-align: center">
+                    <input type="text" id="delete_one_radio_id" class="fadeIn second" name="delete_one_radio_id" placeholder="Insérez l'identifiant de la radio à supprimer" required="">
+                    <p></p>
+                    <input type="submit" class="fadeIn fourth btn_submit" value="Supprimer la radio">
+                </form>
+            </div>
+
+            <div class="method-example">
+                <div class="method-example-request">
+                    <div class="method-example-request-topbar">
+                        <div class="method-example-request-title IntroSection-topbar-title">URL de Suppression d'une radio</div>
+                    </div>
+                    <pre class="IntroSection-pre"><code><strong style="color: red">DELETE </strong>https://webradio-stream.herokuapp.com/authorized/radios/delete/${radio_id}</code></pre>
+                </div>
+
+                <span style="font-size: 0px;"></span>
+                <div class="method-example-response">
+                    <div class="method-example-response-topbar">
+                        <div class="method-example-response-title">Résultat du test</div>
+                    </div>
+                    <div class="response_wrapper">
+                        <p id="delete_one_radio_response">Le résultat du test apparaîtra ici</p>
+                        <pre id="delete_one_radio_json_response"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="method first-of-group" id="get_all_signalements">
+        <div class="MethodArea-divider"></div>
+        <div class="method-area method-area-expanded">
+            <div class="method-copy">
+                <div class="method-copy-padding">
+                    <div class="MethodCopyTitle">
+                        <h1 class="MethodCopyTitle-anchor">Récupérer tous les signalements</h1>
+                    </div>
+                </div>
+                <p>Test de récupération de tous les signalements via l'API de la plateforme Webradio-Stream.</p>
+                <p>Le résultat de votre requête apparaîtra dans la colonne résultat prévu à cet effet.</p>
+                <p><strong>Le résultat peut prendre du temps à arriver. Si rien ne se passe, attendez quelques secondes.</strong></p>
+                <p>NB: Un Token OAuth2 est nécessaire. Pensez à vous connecter.</p>
+                <br>
+
+                <form id="get_all_signalements_form" style="text-align: center">
+                    <input type="submit" class="fadeIn fourth btn_submit" value="Récupérer tous les signalements">
+                </form>
+            </div>
+
+            <div class="method-example">
+                <div class="method-example-request">
+                    <div class="method-example-request-topbar">
+                        <div class="method-example-request-title IntroSection-topbar-title">URL de Récupération des signalements</div>
+                    </div>
+                    <pre class="IntroSection-pre"><code><strong style="color: green">GET </strong>https://webradio-stream.herokuapp.com/authorized/users/active</code></pre>
+                </div>
+
+                <span style="font-size: 0px;"></span>
+                <div class="method-example-response">
+                    <div class="method-example-response-topbar">
+                        <div class="method-example-response-title">Résultat du test</div>
+                    </div>
+                    <div class="response_wrapper">
+                        <p id="get_all_signalements_response">Le résultat du test apparaîtra ici</p>
+                        <pre id="get_all_signalements_json_response"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="method first-of-group" id="get_channel_signalements">
+        <div class="MethodArea-divider"></div>
+        <div class="method-area method-area-expanded">
+            <div class="method-copy">
+                <div class="method-copy-padding">
+                    <div class="MethodCopyTitle">
+                        <h1 class="MethodCopyTitle-anchor">Récupérer les signalements d'une chaîne</h1>
+                    </div>
+                </div>
+                <p>Test de récupération de tous les signalements d'une chaîne spécifique via l'API de la plateforme Webradio-Stream.</p>
+                <p>Le résultat de votre requête apparaîtra dans la colonne résultat prévu à cet effet.</p>
+                <p><strong>Le résultat peut prendre du temps à arriver. Si rien ne se passe, attendez quelques secondes.</strong></p>
+                <p>NB: Un Token OAuth2 est nécessaire. Pensez à vous connecter.</p>
+                <br>
+
+                <form id="get_channel_signalements_form" style="text-align: center">
+                    <input type="text" id="get_channel_signalements_id" class="fadeIn second" name="get_channel_signalements_id" placeholder="Insérez l'identifiant de la chaîne" required="">
+                    <p></p>
+                    <input type="submit" class="fadeIn fourth btn_submit" value="Récupérer les signalements">
+                </form>
+            </div>
+
+            <div class="method-example">
+                <div class="method-example-request">
+                    <div class="method-example-request-topbar">
+                        <div class="method-example-request-title IntroSection-topbar-title">URL de Récupération des signalements d'une chaîne</div>
+                    </div>
+                    <pre class="IntroSection-pre"><code><strong style="color: green">GET </strong>https://webradio-stream.herokuapp.com/authorized/signalements/channel/${channel_id}</code></pre>
+                </div>
+
+                <span style="font-size: 0px;"></span>
+                <div class="method-example-response">
+                    <div class="method-example-response-topbar">
+                        <div class="method-example-response-title">Résultat du test</div>
+                    </div>
+                    <div class="response_wrapper">
+                        <p id="get_channel_signalements_response">Le résultat du test apparaîtra ici</p>
+                        <pre id="get_channel_signalements_json_response"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="method first-of-group" id="update_channel_signalements">
+        <div class="MethodArea-divider"></div>
+        <div class="method-area method-area-expanded">
+            <div class="method-copy">
+                <div class="method-copy-padding">
+                    <div class="MethodCopyTitle">
+                        <h1 class="MethodCopyTitle-anchor">Mettre à jour un signalement d'une chaîne</h1>
+                    </div>
+                </div>
+                <p>Test de mise à jour d'un signaglement d'une chaîne spécifique via l'API de la plateforme Webradio-Stream.</p>
+                <p>Le résultat de votre requête apparaîtra dans la colonne résultat prévu à cet effet.</p>
+                <p><strong>Le résultat peut prendre du temps à arriver. Si rien ne se passe, attendez quelques secondes.</strong></p>
+                <p>NB: Un Token OAuth2 est nécessaire. Pensez à vous connecter.</p>
+                <br>
+
+                <form id="update_channel_signalements_form" style="text-align: center">
+                    <input type="text" id="update_channel_signalements_id" class="fadeIn second" name="update_channel_signalements_id" placeholder="Insérez l'identifiant du signalement" required="">
+                    <p></p>
+                    <div class="select">
+                        <select name="format" id="format-update" style="text-align: center">
+                            <option selected="" disabled="">Motif de signalement</option>
+                            <option value="Vocabulaire abusif">Vocabulaire abusif</option>
+                            <option value="Vocabulaire à caractère sexuel">Vocabulaire à caractère sexuel</option>
+                            <option value="Allusion au suicide">Allusion au suicide</option>
+                            <option value="Vocabulaire à caractère raciste ou sexiste">Vocabulaire à caractère raciste ou sexiste</option>
+                            <option value="Vocabulaire antisémite ou apologie au terrorisme">Vocabulaire antisémite ou apologie au terrorisme</option>
+                        </select>
+                    </div>
+                    <p></p>
+                    <input type="submit" class="fadeIn fourth btn_submit" value="Mettre à jour le signalement">
+                </form>
+            </div>
+
+            <div class="method-example">
+                <div class="method-example-request">
+                    <div class="method-example-request-topbar">
+                        <div class="method-example-request-title IntroSection-topbar-title">URL de Mise à jour d'un signalement</div>
+                    </div>
+                    <pre class="IntroSection-pre"><code><strong style="color: blue">PUT </strong>https://webradio-stream.herokuapp.com/authorized/signalement/update/${signalement_id}</code></pre>
+                </div>
+
+                <span style="font-size: 0px;"></span>
+                <div class="method-example-response">
+                    <div class="method-example-response-topbar">
+                        <div class="method-example-response-title">Résultat du test</div>
+                    </div>
+                    <div class="response_wrapper">
+                        <p id="update_channel_signalements_response">Le résultat du test apparaîtra ici</p>
+                        <pre id="update_channel_signalements_json_response"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="method first-of-group" id="delete_signalements">
+        <div class="MethodArea-divider"></div>
+        <div class="method-area method-area-expanded">
+            <div class="method-copy">
+                <div class="method-copy-padding">
+                    <div class="MethodCopyTitle">
+                        <h1 class="MethodCopyTitle-anchor">Supprimer un signalement</h1>
+                    </div>
+                </div>
+                <p>Test de supression d'un signalement via l'API de la plateforme Webradio-Stream.</p>
+                <p>Le résultat de votre requête apparaîtra dans la colonne résultat prévu à cet effet.</p>
+                <p><strong>Le résultat peut prendre du temps à arriver. Si rien ne se passe, attendez quelques secondes.</strong></p>
+                <p>NB: Un Token OAuth2 est nécessaire. Pensez à vous connecter.</p>
+                <br>
+
+                <form id="delete_signalements_form" style="text-align: center">
+                    <input type="text" id="delete_signalements_id" class="fadeIn second" name="delete_signalements_id" placeholder="Insérez l'identifiant du signalement à supprimer" required="">
+                    <p></p>
+                    <input type="submit" class="fadeIn fourth btn_submit" value="Supprimer le signalement">
+                </form>
+            </div>
+
+            <div class="method-example">
+                <div class="method-example-request">
+                    <div class="method-example-request-topbar">
+                        <div class="method-example-request-title IntroSection-topbar-title">URL de Suppression d'un signalement</div>
+                    </div>
+                    <pre class="IntroSection-pre"><code><strong style="color: red">DELETE </strong>https://webradio-stream.herokuapp.com/authorized/signalement/update/${signalement_id}</code></pre>
+                </div>
+
+                <span style="font-size: 0px;"></span>
+                <div class="method-example-response">
+                    <div class="method-example-response-topbar">
+                        <div class="method-example-response-title">Résultat du test</div>
+                    </div>
+                    <div class="response_wrapper">
+                        <p id="delete_signalements_response">Le résultat du test apparaîtra ici</p>
+                        <pre id="delete_signalements_json_response"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="method first-of-group" id="stats_all_signalements">
+        <div class="MethodArea-divider"></div>
+        <div class="method-area method-area-expanded">
+            <div class="method-copy">
+                <div class="method-copy-padding">
+                    <div class="MethodCopyTitle">
+                        <h1 class="MethodCopyTitle-anchor">Récupérer le nombre de signalements</h1>
+                    </div>
+                </div>
+                <p>Test de récupération du nombre de signalements via l'API de la plateforme Webradio-Stream.</p>
+                <p>Le résultat de votre requête apparaîtra dans la colonne résultat prévu à cet effet.</p>
+                <p><strong>Le résultat peut prendre du temps à arriver. Si rien ne se passe, attendez quelques secondes.</strong></p>
+                <p>NB: Un Token OAuth2 est nécessaire. Pensez à vous connecter.</p>
+                <br>
+
+                <form id="stats_all_signalements_form" style="text-align: center">
+                    <input type="submit" class="fadeIn fourth btn_submit" value="Récupérer le nombre de signalements">
+                </form>
+            </div>
+
+            <div class="method-example">
+                <div class="method-example-request">
+                    <div class="method-example-request-topbar">
+                        <div class="method-example-request-title IntroSection-topbar-title">URL de Récupération du nombre de signalements</div>
+                    </div>
+                    <pre class="IntroSection-pre"><code><strong style="color: green">GET </strong>https://webradio-stream.herokuapp.com/authorized/stats/signalements</code></pre>
+                </div>
+
+                <span style="font-size: 0px;"></span>
+                <div class="method-example-response">
+                    <div class="method-example-response-topbar">
+                        <div class="method-example-response-title">Résultat du test</div>
+                    </div>
+                    <div class="response_wrapper">
+                        <p id="stats_all_signalements_response">Le résultat du test apparaîtra ici</p>
+                        <pre id="stats_all_signalements_json_response"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="method first-of-group" id="stats_all_users">
+        <div class="MethodArea-divider"></div>
+        <div class="method-area method-area-expanded">
+            <div class="method-copy">
+                <div class="method-copy-padding">
+                    <div class="MethodCopyTitle">
+                        <h1 class="MethodCopyTitle-anchor">Récupérer le nombre d'utilisateurs</h1>
+                    </div>
+                </div>
+                <p>Test de récupération du nombre d'utilisateurs via l'API de la plateforme Webradio-Stream.</p>
+                <p>Le résultat de votre requête apparaîtra dans la colonne résultat prévu à cet effet.</p>
+                <p><strong>Le résultat peut prendre du temps à arriver. Si rien ne se passe, attendez quelques secondes.</strong></p>
+                <p>NB: Un Token OAuth2 est nécessaire. Pensez à vous connecter.</p>
+                <br>
+
+                <form id="stats_all_users_form" style="text-align: center">
+                    <input type="submit" class="fadeIn fourth btn_submit" value="Récupérer le nombre d'utilisateur">
+                </form>
+            </div>
+
+            <div class="method-example">
+                <div class="method-example-request">
+                    <div class="method-example-request-topbar">
+                        <div class="method-example-request-title IntroSection-topbar-title">URL de Récupération du nombre d'utilisateurs</div>
+                    </div>
+                    <pre class="IntroSection-pre"><code><strong style="color: green">GET </strong>https://webradio-stream.herokuapp.com/authorized/stats/users</code></pre>
+                </div>
+
+                <span style="font-size: 0px;"></span>
+                <div class="method-example-response">
+                    <div class="method-example-response-topbar">
+                        <div class="method-example-response-title">Résultat du test</div>
+                    </div>
+                    <div class="response_wrapper">
+                        <p id="stats_all_users_response">Le résultat du test apparaîtra ici</p>
+                        <pre id="stats_all_users_json_response"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="method first-of-group" id="stats_all_subs">
+        <div class="MethodArea-divider"></div>
+        <div class="method-area method-area-expanded">
+            <div class="method-copy">
+                <div class="method-copy-padding">
+                    <div class="MethodCopyTitle">
+                        <h1 class="MethodCopyTitle-anchor">Récupérer le nombre d'abonnés</h1>
+                    </div>
+                </div>
+                <p>Test de récupération du nombre d'abonnés via l'API de la plateforme Webradio-Stream.</p>
+                <p>Le résultat de votre requête apparaîtra dans la colonne résultat prévu à cet effet.</p>
+                <p><strong>Le résultat peut prendre du temps à arriver. Si rien ne se passe, attendez quelques secondes.</strong></p>
+                <p>NB: Un Token OAuth2 est nécessaire. Pensez à vous connecter.</p>
+                <br>
+
+                <form id="stats_all_subs_form" style="text-align: center">
+                    <input type="submit" class="fadeIn fourth btn_submit" value="Récupérer le nombre d'abonnés">
+                </form>
+            </div>
+
+            <div class="method-example">
+                <div class="method-example-request">
+                    <div class="method-example-request-topbar">
+                        <div class="method-example-request-title IntroSection-topbar-title">URL de Récupération du nombre d'abonnés</div>
+                    </div>
+                    <pre class="IntroSection-pre"><code><strong style="color: green">GET </strong>https://webradio-stream.herokuapp.com/authorized/stats/subscribers</code></pre>
+                </div>
+
+                <span style="font-size: 0px;"></span>
+                <div class="method-example-response">
+                    <div class="method-example-response-topbar">
+                        <div class="method-example-response-title">Résultat du test</div>
+                    </div>
+                    <div class="response_wrapper">
+                        <p id="stats_all_subs_response">Le résultat du test apparaîtra ici</p>
+                        <pre id="stats_all_subs_json_response"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="method first-of-group" id="stats_all_active_users">
+        <div class="MethodArea-divider"></div>
+        <div class="method-area method-area-expanded">
+            <div class="method-copy">
+                <div class="method-copy-padding">
+                    <div class="MethodCopyTitle">
+                        <h1 class="MethodCopyTitle-anchor">Récupérer le nombre d'utilisateurs actifs</h1>
+                    </div>
+                </div>
+                <p>Test de récupération du nombre d'utilisateurs actifs via l'API de la plateforme Webradio-Stream.</p>
+                <p>Le résultat de votre requête apparaîtra dans la colonne résultat prévu à cet effet.</p>
+                <p><strong>Le résultat peut prendre du temps à arriver. Si rien ne se passe, attendez quelques secondes.</strong></p>
+                <p>NB: Un Token OAuth2 est nécessaire. Pensez à vous connecter.</p>
+                <br>
+
+                <form id="stats_all_active_users_form" style="text-align: center">
+                    <input type="submit" class="fadeIn fourth btn_submit" value="Récupérer le nombre d'utilisateurs actifs">
+                </form>
+            </div>
+
+            <div class="method-example">
+                <div class="method-example-request">
+                    <div class="method-example-request-topbar">
+                        <div class="method-example-request-title IntroSection-topbar-title">URL de Récupération du nombre d'utilisateurs actifs</div>
+                    </div>
+                    <pre class="IntroSection-pre"><code><strong style="color: green">GET </strong>https://webradio-stream.herokuapp.com/authorized/stats/users/active</code></pre>
+                </div>
+
+                <span style="font-size: 0px;"></span>
+                <div class="method-example-response">
+                    <div class="method-example-response-topbar">
+                        <div class="method-example-response-title">Résultat du test</div>
+                    </div>
+                    <div class="response_wrapper">
+                        <p id="stats_all_active_users_response">Le résultat du test apparaîtra ici</p>
+                        <pre id="stats_all_active_users_json_response"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="method first-of-group" id="stats_all_inactive_users">
+        <div class="MethodArea-divider"></div>
+        <div class="method-area method-area-expanded">
+            <div class="method-copy">
+                <div class="method-copy-padding">
+                    <div class="MethodCopyTitle">
+                        <h1 class="MethodCopyTitle-anchor">Récupérer le nombre d'utilisateurs inactifs</h1>
+                    </div>
+                </div>
+                <p>Test de récupération du nombre d'utilisateurs inactifs via l'API de la plateforme Webradio-Stream.</p>
+                <p>Le résultat de votre requête apparaîtra dans la colonne résultat prévu à cet effet.</p>
+                <p><strong>Le résultat peut prendre du temps à arriver. Si rien ne se passe, attendez quelques secondes.</strong></p>
+                <p>NB: Un Token OAuth2 est nécessaire. Pensez à vous connecter.</p>
+                <br>
+
+                <form id="stats_all_inactive_users_form" style="text-align: center">
+                    <input type="submit" class="fadeIn fourth btn_submit" value="Récupérer le nombre d'utilisateurs inactifs">
+                </form>
+            </div>
+
+            <div class="method-example">
+                <div class="method-example-request">
+                    <div class="method-example-request-topbar">
+                        <div class="method-example-request-title IntroSection-topbar-title">URL de Récupération du nombre d'utilisateurs inactifs</div>
+                    </div>
+                    <pre class="IntroSection-pre"><code><strong style="color: green">GET </strong>https://webradio-stream.herokuapp.com/authorized/stats/users/inactive</code></pre>
+                </div>
+
+                <span style="font-size: 0px;"></span>
+                <div class="method-example-response">
+                    <div class="method-example-response-topbar">
+                        <div class="method-example-response-title">Résultat du test</div>
+                    </div>
+                    <div class="response_wrapper">
+                        <p id="stats_all_inactive_users_response">Le résultat du test apparaîtra ici</p>
+                        <pre id="stats_all_inactive_users_json_response"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="method first-of-group" id="stats_all_listen_streams_radios">
+        <div class="MethodArea-divider"></div>
+        <div class="method-area method-area-expanded">
+            <div class="method-copy">
+                <div class="method-copy-padding">
+                    <div class="MethodCopyTitle">
+                        <h1 class="MethodCopyTitle-anchor">Récupérer le nombre d'écoutes streams & radios</h1>
+                    </div>
+                </div>
+                <p>Test de récupération du nombre d'écoutes streams et radios via l'API de la plateforme Webradio-Stream.</p>
+                <p>Le résultat de votre requête apparaîtra dans la colonne résultat prévu à cet effet.</p>
+                <p><strong>Le résultat peut prendre du temps à arriver. Si rien ne se passe, attendez quelques secondes.</strong></p>
+                <p>NB: Un Token OAuth2 est nécessaire. Pensez à vous connecter.</p>
+                <br>
+
+                <form id="stats_all_listen_streams_radios_form" style="text-align: center">
+                    <input type="submit" class="fadeIn fourth btn_submit" value="Récupérer le nombre d'écoutes streams & radios">
+                </form>
+            </div>
+
+            <div class="method-example">
+                <div class="method-example-request">
+                    <div class="method-example-request-topbar">
+                        <div class="method-example-request-title IntroSection-topbar-title">URL de Récupération du nombre d'écoutes streams & radios </div>
+                    </div>
+                    <pre class="IntroSection-pre"><code><strong style="color: green">GET </strong>https://webradio-stream.herokuapp.com/authorized/stats/listen</code></pre>
+                </div>
+
+                <span style="font-size: 0px;"></span>
+                <div class="method-example-response">
+                    <div class="method-example-response-topbar">
+                        <div class="method-example-response-title">Résultat du test</div>
+                    </div>
+                    <div class="response_wrapper">
+                        <p id="stats_all_listen_streams_radios_response">Le résultat du test apparaîtra ici</p>
+                        <pre id="stats_all_listen_streams_radios_json_response"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="method first-of-group" id="stats_all_listen_streams">
+        <div class="MethodArea-divider"></div>
+        <div class="method-area method-area-expanded">
+            <div class="method-copy">
+                <div class="method-copy-padding">
+                    <div class="MethodCopyTitle">
+                        <h1 class="MethodCopyTitle-anchor">Récupérer le nombre d'écoutes streams</h1>
+                    </div>
+                </div>
+                <p>Test de récupération du nombre d'écoutes streams via l'API de la plateforme Webradio-Stream.</p>
+                <p>Le résultat de votre requête apparaîtra dans la colonne résultat prévu à cet effet.</p>
+                <p><strong>Le résultat peut prendre du temps à arriver. Si rien ne se passe, attendez quelques secondes.</strong></p>
+                <p>NB: Un Token OAuth2 est nécessaire. Pensez à vous connecter.</p>
+                <br>
+
+                <form id="stats_all_listen_streams_form" style="text-align: center">
+                    <input type="submit" class="fadeIn fourth btn_submit" value="Récupérer le nombre d'écoutes streams">
+                </form>
+            </div>
+
+            <div class="method-example">
+                <div class="method-example-request">
+                    <div class="method-example-request-topbar">
+                        <div class="method-example-request-title IntroSection-topbar-title">URL de Récupération du nombre d'écoutes stream</div>
+                    </div>
+                    <pre class="IntroSection-pre"><code><strong style="color: green">GET </strong>https://webradio-stream.herokuapp.com/authorized/stats/all/listen/streams</code></pre>
+                </div>
+
+                <span style="font-size: 0px;"></span>
+                <div class="method-example-response">
+                    <div class="method-example-response-topbar">
+                        <div class="method-example-response-title">Résultat du test</div>
+                    </div>
+                    <div class="response_wrapper">
+                        <p id="stats_all_listen_streams_response">Le résultat du test apparaîtra ici</p>
+                        <pre id="stats_all_listen_streams_json_response"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="method first-of-group" id="stats_all_listen_radios">
+        <div class="MethodArea-divider"></div>
+        <div class="method-area method-area-expanded">
+            <div class="method-copy">
+                <div class="method-copy-padding">
+                    <div class="MethodCopyTitle">
+                        <h1 class="MethodCopyTitle-anchor">Récupérer le nombre d'écoutes radio</h1>
+                    </div>
+                </div>
+                <p>Test de récupération du nombre d'écoutes radios via l'API de la plateforme Webradio-Stream.</p>
+                <p>Le résultat de votre requête apparaîtra dans la colonne résultat prévu à cet effet.</p>
+                <p><strong>Le résultat peut prendre du temps à arriver. Si rien ne se passe, attendez quelques secondes.</strong></p>
+                <p>NB: Un Token OAuth2 est nécessaire. Pensez à vous connecter.</p>
+                <br>
+
+                <form id="stats_all_listen_radios_form" style="text-align: center">
+                    <input type="submit" class="fadeIn fourth btn_submit" value="Récupérer le nombre d'écoutes radio">
+                </form>
+            </div>
+
+            <div class="method-example">
+                <div class="method-example-request">
+                    <div class="method-example-request-topbar">
+                        <div class="method-example-request-title IntroSection-topbar-title">URL de Récupération du nombre d'écoutes radio</div>
+                    </div>
+                    <pre class="IntroSection-pre"><code><strong style="color: green">GET </strong>https://webradio-stream.herokuapp.com/authorized/stats/all/listen/radios</code></pre>
+                </div>
+
+                <span style="font-size: 0px;"></span>
+                <div class="method-example-response">
+                    <div class="method-example-response-topbar">
+                        <div class="method-example-response-title">Résultat du test</div>
+                    </div>
+                    <div class="response_wrapper">
+                        <p id="stats_all_listen_radios_users_response">Le résultat du test apparaîtra ici</p>
+                        <pre id="stats_all_listen_radios_json_response"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="method first-of-group" id="stats_all_radios">
+        <div class="MethodArea-divider"></div>
+        <div class="method-area method-area-expanded">
+            <div class="method-copy">
+                <div class="method-copy-padding">
+                    <div class="MethodCopyTitle">
+                        <h1 class="MethodCopyTitle-anchor">Récupérer le nombre de radios</h1>
+                    </div>
+                </div>
+                <p>Test de récupération du nombre de radios via l'API de la plateforme Webradio-Stream.</p>
+                <p>Le résultat de votre requête apparaîtra dans la colonne résultat prévu à cet effet.</p>
+                <p><strong>Le résultat peut prendre du temps à arriver. Si rien ne se passe, attendez quelques secondes.</strong></p>
+                <p>NB: Un Token OAuth2 est nécessaire. Pensez à vous connecter.</p>
+                <br>
+
+                <form id="stats_all_radios_form" style="text-align: center">
+                    <input type="submit" class="fadeIn fourth btn_submit" value="Récupérer le nombre de radios">
+                </form>
+            </div>
+
+            <div class="method-example">
+                <div class="method-example-request">
+                    <div class="method-example-request-topbar">
+                        <div class="method-example-request-title IntroSection-topbar-title">URL de Récupération du nombre de radios</div>
+                    </div>
+                    <pre class="IntroSection-pre"><code><strong style="color: green">GET </strong>https://webradio-stream.herokuapp.com/authorized/stats/radios</code></pre>
+                </div>
+
+                <span style="font-size: 0px;"></span>
+                <div class="method-example-response">
+                    <div class="method-example-response-topbar">
+                        <div class="method-example-response-title">Résultat du test</div>
+                    </div>
+                    <div class="response_wrapper">
+                        <p id="stats_all_radioss_response">Le résultat du test apparaîtra ici</p>
+                        <pre id="stats_all_radios_json_response"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="method first-of-group" id="stats_all_created_stream">
+        <div class="MethodArea-divider"></div>
+        <div class="method-area method-area-expanded">
+            <div class="method-copy">
+                <div class="method-copy-padding">
+                    <div class="MethodCopyTitle">
+                        <h1 class="MethodCopyTitle-anchor">Récupérer le nombre de streams crées</h1>
+                    </div>
+                </div>
+                <p>Test de récupération du nombre de streams crées via l'API de la plateforme Webradio-Stream.</p>
+                <p>Le résultat de votre requête apparaîtra dans la colonne résultat prévu à cet effet.</p>
+                <p><strong>Le résultat peut prendre du temps à arriver. Si rien ne se passe, attendez quelques secondes.</strong></p>
+                <p>NB: Un Token OAuth2 est nécessaire. Pensez à vous connecter.</p>
+                <br>
+
+                <form id="stats_all_created_stream_form" style="text-align: center">
+                    <input type="submit" class="fadeIn fourth btn_submit" value="Récupérer le nombre de streams crées">
+                </form>
+            </div>
+
+            <div class="method-example">
+                <div class="method-example-request">
+                    <div class="method-example-request-topbar">
+                        <div class="method-example-request-title IntroSection-topbar-title">URL de Récupération du nombre de streams crées</div>
+                    </div>
+                    <pre class="IntroSection-pre"><code><strong style="color: green">GET </strong>https://webradio-stream.herokuapp.com/authorized/stats/stream</code></pre>
+                </div>
+
+                <span style="font-size: 0px;"></span>
+                <div class="method-example-response">
+                    <div class="method-example-response-topbar">
+                        <div class="method-example-response-title">Résultat du test</div>
+                    </div>
+                    <div class="response_wrapper">
+                        <p id="stats_all_created_stream_response">Le résultat du test apparaîtra ici</p>
+                        <pre id="stats_all_created_stream_json_response"></pre>
                     </div>
                 </div>
             </div>
