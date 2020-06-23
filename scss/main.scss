@@ -899,7 +899,7 @@ a.docs-link:active,a.docs-link:focus,a.docs-link:hover {
   color: var(--gray600)
 }
 
-.logo .docs {
+.logo {
   height: 16px;
   height: var(--sp16);
   padding-left: 4px;
@@ -4490,4 +4490,23 @@ select::-ms-expand {
 }
 .select:hover::after {
   color: #23b499;
+}
+
+.expiration__ccv {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#year_pay {
+  width: 20%;
+}
+
+#month_pay {
+  width: 20%;
+}
+
+#ccv_pay {
+  width: 40%;
 }

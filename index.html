@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Webradio | API Tester</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Abel">
 </head>
 
 <body>
@@ -14,11 +15,9 @@
 <div id="sidebar">
     <div class="Sidebar-header">
         <div class="Sidebar-header-row">
-            <a href="#intro">
-                <div class="logo">
-                    <span class="docs">webradio api</span>
-                </div>
-            </a>
+            <div class="logo">
+                <span class="logo">webradio api</span>
+            </div>
         </div>
         <div class="Sidebar-header-row">
             <div class="Search-wrapper">
@@ -31,9 +30,9 @@
         <div class="sidebar-nav-group NavGroup-shown">
             <ul class="sidebar-nav-items loaded">
                 <li class="">
-                    <a class="sidebar-nav-item hoverable animals selected" href="#intro">Documentation</a>
+                    <a class="sidebar-nav-item docs hoverable animals selected" href="#intro">Documentation</a>
                 </li>
-                <div class="sidebar-nav-group NavGroup-shown">
+                <div class="sidebar-nav-group docs NavGroup-shown">
                     <h5 class="sidebar-nav-heading">Authentification</h5>
                     <hr>
                 </div>
@@ -43,7 +42,7 @@
                 <li class="">
                     <a class="sidebar-nav-item docs hoverable" href="#connexion">Connexion</a>
                 </li>
-                <div class="sidebar-nav-group NavGroup-shown">
+                <div class="sidebar-nav-group docs NavGroup-shown">
                     <h5 class="sidebar-nav-heading">Gestion Utilisateur</h5>
                     <hr>
                 </div>
@@ -62,7 +61,7 @@
                 <li class="">
                     <a class="sidebar-nav-item docs hoverable" href="#set_inactive_user">Supprimer son compte</a>
                 </li>
-                <div class="sidebar-nav-group NavGroup-shown">
+                <div class="sidebar-nav-group docs NavGroup-shown">
                     <h5 class="sidebar-nav-heading">Gestion Chaînes</h5>
                     <hr>
                 </div>
@@ -72,7 +71,7 @@
                 <li class="">
                     <a class="sidebar-nav-item docs hoverable" href="#update_user_channel">Mettre à jour sa chaîne</a>
                 </li>
-                <div class="sidebar-nav-group NavGroup-shown">
+                <div class="sidebar-nav-group docs NavGroup-shown">
                     <h5 class="sidebar-nav-heading">Autres actions de l'utilisateur</h5>
                     <hr>
                 </div>
@@ -94,10 +93,13 @@
                 <li class="">
                     <a class="sidebar-nav-item docs hoverable" href="#create_signalement">Signaler une chaîne</a>
                 </li>
-                <div class="sidebar-nav-group NavGroup-shown">
+                <div class="sidebar-nav-group docs NavGroup-shown">
                     <h5 class="sidebar-nav-heading">Administration utilisateurs</h5>
                     <hr>
                 </div>
+                <li class="">
+                    <a class="sidebar-nav-item docs hoverable" href="#create_new_user">Ajouter un utilisateur</a>
+                </li>
                 <li class="">
                     <a class="sidebar-nav-item docs hoverable" href="#get_all_users">Récupérer tous les utilisateurs</a>
                 </li>
@@ -110,7 +112,7 @@
                 <li class="">
                     <a class="sidebar-nav-item docs hoverable" href="#get_one_user">Récupérer un utilisateur</a>
                 </li>
-                <div class="sidebar-nav-group NavGroup-shown">
+                <div class="sidebar-nav-group docs NavGroup-shown">
                     <h5 class="sidebar-nav-heading">Administration chaînes</h5>
                     <hr>
                 </div>
@@ -123,7 +125,7 @@
                 <li class="">
                     <a class="sidebar-nav-item docs hoverable" href="#unbanish_one_channel">Débannir une chaîne</a>
                 </li>
-                <div class="sidebar-nav-group NavGroup-shown">
+                <div class="sidebar-nav-group docs NavGroup-shown">
                     <h5 class="sidebar-nav-heading">Administration radios</h5>
                     <hr>
                 </div>
@@ -133,7 +135,7 @@
                 <li class="">
                     <a class="sidebar-nav-item docs hoverable" href="#delete_one_radio">Supprimer une radio</a>
                 </li>
-                <div class="sidebar-nav-group NavGroup-shown">
+                <div class="sidebar-nav-group docs NavGroup-shown">
                     <h5 class="sidebar-nav-heading">Administration signalements</h5>
                     <hr>
                 </div>
@@ -149,14 +151,14 @@
                 <li class="">
                     <a class="sidebar-nav-item docs hoverable" href="#delete_signalements">Supprimer un signalement</a>
                 </li>
-                <div class="sidebar-nav-group NavGroup-shown">
+                <div class="sidebar-nav-group docs docsNavGroup-shown">
                     <h5 class="sidebar-nav-heading">Statistiques utilisateurs</h5>
                     <hr>
                 </div>
                 <li class="">
                     <a class="sidebar-nav-item docs hoverable" href="#stats_all_signalements">Nombre de signalements</a>
                 </li>
-                <div class="sidebar-nav-group NavGroup-shown">
+                <div class="sidebar-nav-group docs NavGroup-shown">
                     <h5 class="sidebar-nav-heading">Statistiques utilisateurs</h5>
                     <hr>
                 </div>
@@ -172,7 +174,7 @@
                 <li class="">
                     <a class="sidebar-nav-item docs hoverable" href="#stats_all_inactive_users">Nombre d'utilisateurs inactifs</a>
                 </li>
-                <div class="sidebar-nav-group NavGroup-shown">
+                <div class="sidebar-nav-group docs NavGroup-shown">
                     <h5 class="sidebar-nav-heading">Statistiques streams & radios</h5>
                     <hr>
                 </div>
@@ -190,6 +192,16 @@
                 </li>
                 <li class="">
                     <a class="sidebar-nav-item docs hoverable" href="#stats_all_created_stream">Nombre de stream crées</a>
+                </li>
+                <div class="sidebar-nav-group docs NavGroup-shown">
+                    <h5 class="sidebar-nav-heading">Paiements</h5>
+                    <hr>
+                </div>
+                <li class="">
+                    <a class="sidebar-nav-item docs hoverable" href="#check_sub">Vérifier le status de l'abonnement</a>
+                </li>
+                <li class="">
+                    <a class="sidebar-nav-item docs hoverable" href="#sub_to_stream">S'abonner au stream</a>
                 </li>
             </ul>
         </div>
@@ -356,6 +368,7 @@
                 <p><strong>Le résultat peut prendre du temps à arriver. Si rien ne se passe, attendez quelques secondes.</strong></p>
                 <p>Assurez-vous d'avoir un compte chez nous pour pouvoir réinitialiser votre mot de passe.</p>
                 <p>En testant cette route, vous allez recevoir un mail de réinitialisation. N'utilisez pas le bouton reçu dans le mail, il n'a pas de lien avec les tests. Cependant, il vous faudra récupéré le lien généré dans le mail pour pouvoir continuer.</p>
+                <p>(Pensez à regarder vos emails indésirables)</p>
                 <br>
 
                 <form id="forgot_pass_email_form" style="text-align: center">
@@ -934,6 +947,55 @@
         </div>
     </section>
 
+    <section class="method first-of-group" id="create_new_user">
+        <div class="MethodArea-divider"></div>
+        <div class="method-area method-area-expanded">
+            <div class="method-copy">
+                <div class="method-copy-padding">
+                    <div class="MethodCopyTitle">
+                        <h1 class="MethodCopyTitle-anchor">Ajouter un nouvel utilisateur</h1>
+                    </div>
+                </div>
+                <p>Test de récupération de tous les utilisateurs via l'API de la plateforme Webradio-Stream.</p>
+                <p>Le résultat de votre requête apparaîtra dans la colonne résultat prévu à cet effet.</p>
+                <p><strong>Le résultat peut prendre du temps à arriver. Si rien ne se passe, attendez quelques secondes.</strong></p>
+                <p>NB: Un Token OAuth2 est nécessaire. Pensez à vous connecter.</p>
+                <p>⚠️ : Il faudra indiqué une adresse email réelle afin de recevoir le mail prévu.</p>
+                <p>⚠️ : Vous recevrez un email après la création de l'utilisateur. (Pensez à regarder dans vos emails indésirables)</p>
+                <br>
+
+                <form id="create_new_user_form" style="text-align: center">
+                    <input type="text" id="create_new_user_email" class="fadeIn second" name="email" placeholder="Email" required>
+                    <p></p>
+                    <input type="text" id="create_new_user_username" class="fadeIn second" name="username" placeholder="Nom d'utilisateur" required>
+                    <p></p>
+                    <input type="submit" class="fadeIn fourth btn_submit" value="Ajouter un utilisateur">
+                </form>
+            </div>
+
+            <div class="method-example">
+                <div class="method-example-request">
+                    <div class="method-example-request-topbar">
+                        <div class="method-example-request-title IntroSection-topbar-title">URL de Création d'un utilisateur</div>
+                    </div>
+                    <pre class="IntroSection-pre"><code><strong style="color: yellow">POST </strong>https://webradio-stream.herokuapp.com/authorized/users/create</code></pre>
+                </div>
+
+                <span style="font-size: 0px;"></span>
+                <div class="method-example-response">
+                    <div class="method-example-response-topbar">
+                        <div class="method-example-response-title">Résultat du test</div>
+                    </div>
+                    <div class="response_wrapper">
+                        <p id="create_new_user_response">Le résultat du test apparaîtra ici</p>
+                        <pre id="create_new_user_json_response"></pre>
+                    </div>
+                </div>
+                <p style="color: green" class="confirm_password"><b>Un email avec votre mot de passe vient de vous être envoyé ! (Pensez à regarder vos emails indésirables)</b></p>
+            </div>
+        </div>
+    </section>
+
     <section class="method first-of-group" id="get_all_users">
         <div class="MethodArea-divider"></div>
         <div class="method-area method-area-expanded">
@@ -1258,7 +1320,7 @@
                             <i class="far fa-edit" style="font-size:50px; color: #EF0051"></i>
                         </label>
 
-                        <input type="file" accept="image/*" id="cameraInputRadio">
+                        <input type="file" id="cameraInputRadio">
                     </div>
                     <input type="text" id="create_radio_name" class="fadeIn second" name="create_radio_name" placeholder="Nom de la radio" required>
                     <p></p>
@@ -1935,6 +1997,122 @@
                         <pre id="stats_all_created_stream_json_response"></pre>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="method first-of-group" id="check_sub">
+        <div class="MethodArea-divider"></div>
+        <div class="method-area method-area-expanded">
+            <div class="method-copy">
+                <div class="method-copy-padding">
+                    <div class="MethodCopyTitle">
+                        <h1 class="MethodCopyTitle-anchor">Vérifier le status de l'abonnement</h1>
+                    </div>
+                </div>
+                <p>Test de vérification de l'abonnement au stream crées via l'API de la plateforme Webradio-Stream.</p>
+                <p>Le résultat de votre requête apparaîtra dans la colonne résultat prévu à cet effet.</p>
+                <p><strong>Le résultat peut prendre du temps à arriver. Si rien ne se passe, attendez quelques secondes.</strong></p>
+                <p>NB: Un Token OAuth2 est nécessaire. Pensez à vous connecter.</p>
+                <br>
+
+                <form id="check_sub_form" style="text-align: center">
+                    <input type="text" id="check_sub_id" class="fadeIn second" name="banish_one_channel_id" placeholder="Insérez l'identifiant de l'utilisateur à vérifier" required>
+                    <p></p>
+                    <input type="submit" class="fadeIn fourth btn_submit" value="Vérifier le status">
+                </form>
+            </div>
+
+            <div class="method-example">
+                <div class="method-example-request">
+                    <div class="method-example-request-topbar">
+                        <div class="method-example-request-title IntroSection-topbar-title">URL de vérification de l'abonnement au stream</div>
+                    </div>
+                    <pre class="IntroSection-pre"><code><strong style="color: green">GET </strong>https://webradio-stream.herokuapp.com/authorized/subscribe/check/${user_id}</code></pre>
+                </div>
+
+                <span style="font-size: 0px;"></span>
+                <div class="method-example-response">
+                    <div class="method-example-response-topbar">
+                        <div class="method-example-response-title">Résultat du test</div>
+                    </div>
+                    <div class="response_wrapper">
+                        <p id="check_sub_response">Le résultat du test apparaîtra ici</p>
+                        <pre id="check_sub_json_response"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="method first-of-group" id="sub_to_stream">
+        <div class="MethodArea-divider"></div>
+        <div class="method-area method-area-expanded">
+            <div class="method-copy">
+                <div class="method-copy-padding">
+                    <div class="MethodCopyTitle">
+                        <h1 class="MethodCopyTitle-anchor">S'abonner au stream</h1>
+                    </div>
+                </div>
+                <p>Test d'abonnement au stream crées via l'API de la plateforme Webradio-Stream.</p>
+                <p>Le résultat de votre requête apparaîtra dans la colonne résultat prévu à cet effet.</p>
+                <p><strong>Le résultat peut prendre du temps à arriver. Si rien ne se passe, attendez quelques secondes.</strong></p>
+                <p>Informations pour un paiement accepté :</p>
+                <p>Numéro de carte : 4242424242424242
+                    <br>
+                    Expiration (mois) : 12
+                    <br>
+                    Expiration (année) : 21
+                    <br>
+                    CVC : 424
+                </p>
+                <p>Informations pour un paiement refusé :</p>
+                <p>Numéro de carte : 4000000000000002
+                    <br>
+                    Expiration (mois) : 12
+                    <br>
+                    Expiration (année) : 21
+                    <br>
+                    CVC : 424
+                </p>
+                <p>NB: Un Token OAuth2 est nécessaire. Pensez à vous connecter.</p>
+                <br>
+
+                <form id="sub_to_stream_form" style="text-align: center">
+                    <input type="submit" class="fadeIn fourth btn_submit" value="Ça m'intéresse !">
+                </form>
+                <form id="payment" style="text-align: center">
+                    <input type="hidden" id="plan_pay" class="fadeIn second" name="payment_plan" value='{"id":"plan_HHiov1zKjC2FS8","object":"plan","active":true,"aggregate_usage":null,"amount":"$4.99","amount_decimal":"499","billing_scheme":"per_unit","created":1589571547,"currency":"eur","interval":"month","interval_count":1,"livemode":false,"metadata":{},"nickname":"Streaming","product":"prod_GiipTMGdcLcWxV","tiers":null,"tiers_mode":null,"transform_usage":null,"trial_period_days":null,"usage_type":"licensed"}'>
+                    <input type="text" id="email_pay" class="fadeIn second" name="payment_email" placeholder="Votre adresse email" required>
+                    <input type="text" id="number_pay" maxlength="19" class="fadeIn second" name="payment_card_number" placeholder="Numéro de carte" required>
+                    <div class="expiration__ccv">
+                        <input type="text" id="month_pay" maxlength="2" class="fadeIn second" name="payment_month" placeholder="MM" required>
+                        <input type="text" id="year_pay" maxlength="2" class="fadeIn second" name="payment_year" placeholder="YY" required>
+                        <input type="text" id="ccv_pay" maxlength="3" class="fadeIn second" name="payment_ccv" placeholder="CCV" required>
+                    </div>
+                    <input type="submit" class="fadeIn fourth btn_submit" value="S'abonner !">
+                </form>
+            </div>
+
+            <div class="method-example">
+                <div class="method-example-request">
+                    <div class="method-example-request-topbar">
+                        <div class="method-example-request-title IntroSection-topbar-title">URL d'abonnement au stream</div>
+                    </div>
+                    <pre class="IntroSection-pre"><code><strong style="color: yellow">POST </strong>https://webradio-stream.herokuapp.com/authorized/subscribe/payment</code></pre>
+                </div>
+
+                <span style="font-size: 0px;"></span>
+                <div class="method-example-response">
+                    <div class="method-example-response-topbar">
+                        <div class="method-example-response-title">Résultat du test</div>
+                    </div>
+                    <div class="response_wrapper">
+                        <p id="sub_to_stream_response">Le résultat du test apparaîtra ici</p>
+                        <pre id="sub_to_stream_json_response"></pre>
+                    </div>
+                </div>
+                <p style="color: green" class="confirm_pay"><b>Un email de confirmation vient de vous être envoyé ! (Pensez à regarder vos emails indésirables)</b></p>
             </div>
         </div>
     </section>
