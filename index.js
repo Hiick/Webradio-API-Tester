@@ -260,7 +260,7 @@ $(document).ready(function(){
         e.preventDefault(); // avoid to execute the actual submit of the form.
         disable();
 
-        const token = localStorage.getItem("token");
+        const token = localStorage.getItem('token');
 
         let data = {
             password: $("#update_user_password_connected_password").val(),
@@ -1431,6 +1431,247 @@ $(document).ready(function(){
                 } else {
                     $('#create_new_user_response').html("");
                     $('#create_new_user_json_response').html("Problème avec le token OAuth2. Il n'est pas valide");
+                }
+            }
+        });
+    });
+
+    let radio_id;
+    let channel_id;
+
+    $("#show_radios_channels").on('submit', (e) => {
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+        disable()
+
+        const token = localStorage.getItem("token");
+
+        $.ajax({
+            type: "GET",
+            url: 'https://webradio-stream.herokuapp.com/auth/radios/all',
+            success: (response) =>
+            {
+                reset()
+                radio_id = response.radios[0]._id
+                $(".radio_logo").css("display", 'block')
+                $(".radio_name").css("display", 'block')
+                $(".fa-heart").css("display", 'block')
+                $(".radio_logo").attr("src", response.radios[0].logo)
+                $(".radio_name").html(response.radios[0].radio_name)
+            },
+            error: (err) => {
+                console.log(err)
+            }
+        });
+
+        $.ajax({
+            type: "GET",
+            url: 'https://webradio-stream.herokuapp.com/authorized/channels/all',
+            headers: {
+                'Authorization':'Bearer ' + token
+            },
+            success: (response) =>
+            {
+                reset()
+                channel_id = response.channels[0]._id
+                $(".channel_logo").css("display", 'block')
+                $(".channel_name").css("display", 'block')
+                $(".channel_logo").attr("src", response.channels[0].avatar)
+                $(".channel_name").html(response.channels[0].channel_name)
+            },
+            error: (err) => {
+                console.log(err)
+            }
+        });
+    });
+
+    let clicked_radio = false;
+    let clicked_channel = false;
+
+    $('.radio_heart').on('click', (e) => {
+        e.preventDefault()
+
+        if (clicked_radio === false) {
+            $('.radio_heart').removeClass('far').addClass('fas')
+            $('.fas').css('color', 'red');
+
+            if (Object.entries(user).length === 0) {
+                clicked_radio = false
+                console.log('Merci de récupérer les informations utilisateur pour continuer');
+                $('.radio_heart').removeClass('fas').addClass('far')
+            } else {
+                clicked_radio = true
+                $.ajax({
+                    type: "POST",
+                    url: 'https://webradio-stream.herokuapp.com/authorized/radio/favorite/'+user.user[0].user_id+'?radio_id='+radio_id,
+                    headers: {
+                        'Authorization':'Bearer ' + localStorage.getItem('token')
+                    },
+                    success: (response) =>
+                    {
+                        reset()
+                        $('#add_remove_fav_response').html("");
+                        $('#add_remove_fav_json_response').html(JSON.stringify(response, undefined, 4));
+                    },
+                    error: (err) => {
+                        if (err.responseJSON) {
+                            $('#add_remove_fav_response').html("");
+                            $('#add_remove_fav_json_response').html(JSON.stringify(err.responseJSON, undefined, 4));
+                        } else {
+                            $('#add_remove_fav_response').html("");
+                            $('#add_remove_fav_json_response').html("Problème avec le token OAuth2. Il n'est pas valide");
+                        }
+                    }
+                });
+            }
+        } else {
+            clicked_radio = false
+            $('.radio_heart').removeClass('fas').addClass('far');
+
+            $.ajax({
+                type: "DELETE",
+                url: 'https://webradio-stream.herokuapp.com/authorized/radio/favorite/'+user.user[0].user_id+'?radio_id='+radio_id,
+                headers: {
+                    'Authorization':'Bearer ' + localStorage.getItem('token')
+                },
+                success: (response) =>
+                {
+                    reset()
+                    $('#add_remove_fav_response').html("");
+                    $('#add_remove_fav_json_response').html(JSON.stringify(response, undefined, 4));
+                },
+                error: (err) => {
+                    if (err.responseJSON) {
+                        $('#add_remove_fav_response').html("");
+                        $('#add_remove_fav_json_response').html(JSON.stringify(err.responseJSON, undefined, 4));
+                    } else {
+                        $('#add_remove_fav_response').html("");
+                        $('#add_remove_fav_json_response').html("Problème avec le token OAuth2. Il n'est pas valide");
+                    }
+                }
+            });
+        }
+    })
+
+    $('.channel_heart').on('click', (e) => {
+        e.preventDefault()
+
+        if (clicked_channel === false) {
+            clicked_channel = true;
+            $('.channel_heart').removeClass('far').addClass('fas')
+            $('.fas').css('color', 'red');
+
+            if (Object.entries(user).length === 0) {
+                clicked_channel = false;
+                console.log('Merci de récupérer les informations utilisateur pour continuer')
+                $('.channel_heart').removeClass('fas').addClass('far')
+            } else {
+                $.ajax({
+                    type: "POST",
+                    url: 'https://webradio-stream.herokuapp.com/authorized/channel/favorite/'+user.user[0].user_id+'?channel_id='+channel_id,
+                    headers: {
+                        'Authorization':'Bearer ' + localStorage.getItem('token')
+                    },
+                    success: (response) =>
+                    {
+                        reset()
+                        $('#add_remove_fav_response').html("");
+                        $('#add_remove_fav_json_response').html(JSON.stringify(response, undefined, 4));
+                    },
+                    error: (err) => {
+                        if (err.responseJSON) {
+                            $('#add_remove_fav_response').html("");
+                            $('#add_remove_fav_json_response').html(JSON.stringify(err.responseJSON, undefined, 4));
+                        } else {
+                            $('#add_remove_fav_response').html("");
+                            $('#add_remove_fav_json_response').html("Problème avec le token OAuth2. Il n'est pas valide");
+                        }
+                    }
+                });
+            }
+        } else {
+            clicked_channel = false
+            $('.channel_heart').removeClass('fas').addClass('far');
+
+            $.ajax({
+                type: "DELETE",
+                url: 'https://webradio-stream.herokuapp.com/authorized/channel/favorite/'+user.user[0].user_id+'?channel_id='+channel_id,
+                headers: {
+                    'Authorization':'Bearer ' + localStorage.getItem('token')
+                },
+                success: (response) =>
+                {
+                    reset()
+                    $('#add_remove_fav_response').html("");
+                    $('#add_remove_fav_json_response').html(JSON.stringify(response, undefined, 4));
+                },
+                error: (err) => {
+                    if (err.responseJSON) {
+                        $('#add_remove_fav_response').html("");
+                        $('#add_remove_fav_json_response').html(JSON.stringify(err.responseJSON, undefined, 4));
+                    } else {
+                        $('#add_remove_fav_response').html("");
+                        $('#add_remove_fav_json_response').html("Problème avec le token OAuth2. Il n'est pas valide");
+                    }
+                }
+            });
+        }
+    })
+
+    $("#get_fav_radio").on('submit', (e) => {
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+        disable()
+
+        const token = localStorage.getItem("token");
+
+        $.ajax({
+            type: "GET",
+            url: 'https://webradio-stream.herokuapp.com/authorized/radio/favorite/'+user.user[0].user_id,
+            headers: {
+                'Authorization':'Bearer ' + token
+            },
+            success: (response) =>
+            {
+                reset()
+                $('#get_fav_response').html("");
+                $('#get_fav_json_response').html(JSON.stringify(response, undefined, 4));
+            },
+            error: (err) => {
+                if (err.responseJSON) {
+                    $('#get_fav_response').html("");
+                    $('#get_fav_json_response').html(JSON.stringify(err.responseJSON, undefined, 4));
+                } else {
+                    $('#get_fav_response').html("");
+                    $('#get_fav_json_response').html("Problème avec le token OAuth2. Il n'est pas valide");
+                }
+            }
+        });
+    });
+
+    $("#get_fav_channel").on('submit', (e) => {
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+        disable()
+
+        const token = localStorage.getItem("token");
+
+        $.ajax({
+            type: "GET",
+            url: 'https://webradio-stream.herokuapp.com/authorized/channel/favorite/'+user.user[0].user_id,
+            headers: {
+                'Authorization':'Bearer ' + token
+            },
+            success: (response) =>
+            {
+                reset()
+                $('#get_fav_response').html("");
+                $('#get_fav_json_response').html(JSON.stringify(response, undefined, 4));
+            },
+            error: (err) => {
+                if (err.responseJSON) {
+                    $('#get_fav_response').html("");
+                    $('#get_fav_json_response').html(JSON.stringify(err.responseJSON, undefined, 4));
+                } else {
+                    $('#get_fav_response').html("");
+                    $('#get_fav_json_response').html("Problème avec le token OAuth2. Il n'est pas valide");
                 }
             }
         });

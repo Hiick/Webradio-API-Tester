@@ -203,6 +203,16 @@
                 <li class="">
                     <a class="sidebar-nav-item docs hoverable" href="#sub_to_stream">S'abonner au stream</a>
                 </li>
+                <div class="sidebar-nav-group docs NavGroup-shown">
+                    <h5 class="sidebar-nav-heading">Favoris</h5>
+                    <hr>
+                </div>
+                <li class="">
+                    <a class="sidebar-nav-item docs hoverable" href="#add_remove_fav">Ajouter/Retirer la radio | chaîne en favoris</a>
+                </li>
+                <li class="">
+                    <a class="sidebar-nav-item docs hoverable" href="#get_fav">Récupérer toutes les radios | chaînes en favoris</a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -2117,6 +2127,127 @@
         </div>
     </section>
 
+    <section class="method first-of-group" id="add_remove_fav">
+        <div class="MethodArea-divider"></div>
+        <div class="method-area method-area-expanded">
+            <div class="method-copy">
+                <div class="method-copy-padding">
+                    <div class="MethodCopyTitle">
+                        <h1 class="MethodCopyTitle-anchor">Ajouter | Retirer une radio ou une chaîne des favoris</h1>
+                    </div>
+                </div>
+                <p>Test de vérification de l'ajout de favoris via l'API de la plateforme Webradio-Stream.</p>
+                <p>Le résultat de votre requête apparaîtra dans la colonne résultat prévu à cet effet.</p>
+                <p><strong>Le résultat peut prendre du temps à arriver. Si rien ne se passe, attendez quelques secondes.</strong></p>
+                <p>NB: Un Token OAuth2 est nécessaire. Pensez à vous connecter.</p>
+                <br>
+
+                <form id="show_radios_channels" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                    <div class="radio_container" style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
+                        <img class="radio_logo" src="" alt="" style="display: none; width: 60%">
+                        <p class="radio_name" style="display: none; margin-right: 10%"></p>
+                        <i class="far fa-heart radio_heart" style="display: none; font-size: 30px; color: red"></i>
+                    </div>
+                    <div class="channel_container" style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
+                        <img class="channel_logo" src="" alt="" style="display: none; width: 57%; margin-right: 7%">
+                        <p class="channel_name" style="display: none; margin-right: 10%"></p>
+                        <i class="far fa-heart channel_heart" style="display: none; font-size: 30px; color: red"></i>
+                    </div>
+                <input type="submit" class="fadeIn fourth btn_submit" value="Afficher les radios et les chaînes">
+                </form>
+            </div>
+
+            <div class="method-example">
+                <div class="method-example-request">
+                    <div class="method-example-request-topbar">
+                        <div class="method-example-request-title IntroSection-topbar-title">URL d'ajout d'une radio en favoris</div>
+                    </div>
+                    <pre class="IntroSection-pre"><code><strong style="color: yellow">POST </strong>https://webradio-stream.herokuapp.com/authorized/radio/favorite/${user_Id}?radio_id=${radioId}</code></pre>
+                </div>
+                <div class="method-example-request">
+                    <div class="method-example-request-topbar">
+                        <div class="method-example-request-title IntroSection-topbar-title">URL de suppression d'une radio en favoris</div>
+                    </div>
+                    <pre class="IntroSection-pre"><code><strong style="color: red">DELETE </strong>https://webradio-stream.herokuapp.com/authorized/radio/favorite/${user_id}?radio_id=${radio_id}</code></pre>
+                </div>
+                <div class="method-example-request">
+                    <div class="method-example-request-topbar">
+                        <div class="method-example-request-title IntroSection-topbar-title">URL d'ajout d'une chaîne en favoris</div>
+                    </div>
+                    <pre class="IntroSection-pre"><code><strong style="color: yellow">POST </strong>https://webradio-stream.herokuapp.com/authorized/channel/favorite/$(user_id)?channel_id=$(channel_id)</code></pre>
+                </div>
+                <div class="method-example-request">
+                    <div class="method-example-request-topbar">
+                        <div class="method-example-request-title IntroSection-topbar-title">URL de suppression d'une chaîne en favoris'</div>
+                    </div>
+                    <pre class="IntroSection-pre"><code><strong style="color: red">DELETE </strong>https://webradio-stream.herokuapp.com/authorized/channel/favorite/$(user_id)?channel_id=$(channel_id)</code></pre>
+                </div>
+
+                <span style="font-size: 0px;"></span>
+                <div class="method-example-response">
+                    <div class="method-example-response-topbar">
+                        <div class="method-example-response-title">Résultat du test</div>
+                    </div>
+                    <div class="response_wrapper">
+                        <p id="add_remove_fav_response">Le résultat du test apparaîtra ici</p>
+                        <pre id="add_remove_fav_json_response"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="method first-of-group" id="get_fav">
+        <div class="MethodArea-divider"></div>
+        <div class="method-area method-area-expanded">
+            <div class="method-copy">
+                <div class="method-copy-padding">
+                    <div class="MethodCopyTitle">
+                        <h1 class="MethodCopyTitle-anchor">Récupérer toutes les radios ou chaînes en favoris</h1>
+                    </div>
+                </div>
+                <p>Test de vérification de la récupération des favoris via l'API de la plateforme Webradio-Stream.</p>
+                <p>Le résultat de votre requête apparaîtra dans la colonne résultat prévu à cet effet.</p>
+                <p><strong>Le résultat peut prendre du temps à arriver. Si rien ne se passe, attendez quelques secondes.</strong></p>
+                <p>NB: Un Token OAuth2 est nécessaire. Pensez à vous connecter.</p>
+                <br>
+
+                <form id="get_fav_radio" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                    <input type="submit" class="fadeIn fourth btn_submit" value="Récupérer les radios mise en favoris">
+                </form>
+
+                <form id="get_fav_channel" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                    <input type="submit" class="fadeIn fourth btn_submit" value="Récupérer les chaînes mise en favoris">
+                </form>
+            </div>
+
+            <div class="method-example">
+                <div class="method-example-request">
+                    <div class="method-example-request-topbar">
+                        <div class="method-example-request-title IntroSection-topbar-title">URL de récupération des radios en favoris</div>
+                    </div>
+                    <pre class="IntroSection-pre"><code><strong style="color: green">GET </strong>https://webradio-stream.herokuapp.com/authorized/radio/favorite/${user_id}</code></pre>
+                </div>
+                <div class="method-example-request">
+                    <div class="method-example-request-topbar">
+                        <div class="method-example-request-title IntroSection-topbar-title">URL de récupération des chaînes en favoris'</div>
+                    </div>
+                    <pre class="IntroSection-pre"><code><strong style="color: green">GET </strong>https://webradio-stream.herokuapp.com/authorized/channel/favorite/$(user_id)</code></pre>
+                </div>
+
+                <span style="font-size: 0px;"></span>
+                <div class="method-example-response">
+                    <div class="method-example-response-topbar">
+                        <div class="method-example-response-title">Résultat du test</div>
+                    </div>
+                    <div class="response_wrapper">
+                        <p id="get_fav_response">Le résultat du test apparaîtra ici</p>
+                        <pre id="get_fav_json_response"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
